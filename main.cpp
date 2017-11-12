@@ -1,3 +1,12 @@
+/*
+	AUTORES: Mendez Alvarez Jorge Luis y Ochoa Ginera Carlos Armando (c) Noviembre 2017
+	VERSIÓN: 1.1
+	
+	DESCRIPCIÓN: Autómata de pila que evalúa palindromos con a y b
+  
+  	COMPILACION: g++ main.cpp practica6 
+*/
+
 #include<iostream>
 #include<string>
 #include<stack>
