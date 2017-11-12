@@ -4,22 +4,12 @@
 
 using namespace std;
 
-int main(void){
-  string cadena;
-  int estado;
-  int i;
-  bool continuar = true;
+void evaluar(string cadena){
+  int estado = 0;
+  int i = 0;
   elemento alf_pila;
   pila expresion;
-  while(continuar){
     Initialize(&expresion);
-    i = 0;
-    estado = 0;
-    cout << "\nEscriba por favor la cadena a evaluar" << endl;
-    cout << "Si desea salir presione cero" << endl;
-    cin >> cadena;
-    if(cadena.at(i) == '0')
-      break;
 	  do{
 	    switch(estado){
 	      case 0:
@@ -77,13 +67,26 @@ int main(void){
 	    estado = 0;
 	  if(Top(&expresion).c == "Z0" && estado == 0){
 	    cout << "\nLa expresión dada es válida en este lenguaje\n" << endl;
-            Destroy(&expresion);
           }
 	  else{
 	    cout << "\nLa expresión no es válida" << endl;
 	    cout << "Lo que se quedó en el tope de la pila es " << Top(&expresion).c << endl;
-            Destroy(&expresion);
 	  }
-    }
-	  return 0;
+      Destroy(&expresion);
+      return;
+}
+
+int main(void){
+  string cadena;
+  bool continuar = true;
+  while(continuar){
+    cout << "\nEscriba por favor la cadena a evaluar" << endl;
+    cout << "Si desea salir presione cero" << endl;
+    cin >> cadena;
+    if(cadena.at(0) == '0')
+      break;
+    else
+      evaluar(cadena);
+  }
+  return 0;
 }
