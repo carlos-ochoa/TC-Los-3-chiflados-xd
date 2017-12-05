@@ -89,6 +89,12 @@ Anadir_cinta(lista cintas[2], elemento auxiliar1, char binario1[18], char binari
 	Add (&cintas[0], auxiliar1);	//Lo añadimos a la cinta
 	//cout<<auxiliar1.c<<endl;
     }
+    for(contador = 0; contador < 25; contador++)	//for para la segunda cinta que tiene el resultado
+    {//Por ahorita puse B para solo crear los espacios, puede ser cualquier letra
+	auxiliar2.c = B;	//Ponemos el caracter que queremos poner en la cinta en un elemento
+	Add (&cintas[1], auxiliar1);	//Lo añadimos a la cinta 2
+	//cout<<auxiliar1.c<<endl;
+    }
     return cintas;
 
 }
