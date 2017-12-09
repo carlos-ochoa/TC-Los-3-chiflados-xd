@@ -158,7 +158,7 @@ evaluar(vector <char> c1, vector <char> c2, vector <char> c3){
                 cabezal--;	//Movemos el cabezal de lugar para continuar con la siguiente resta
                 break;	//En el case 3 se realizan las restas con acarreo
                 case 3://Resta de 0-0 sin acarreo, aqui se genera uno y se va al estado 2
-                    }//Resta de 0-0 con acarreo, aqui se genera uno y se va al estado 2
+                    //Resta de 0-0 con acarreo, aqui se genera uno y se va al estado 2
                     if(c1.at(cabezal) == '0' && c2.at(cabezal) == '0'){
                                     c3.insert(c3.begin(), '1');
                                     estado = 2;
