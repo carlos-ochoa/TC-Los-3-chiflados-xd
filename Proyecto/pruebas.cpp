@@ -24,11 +24,12 @@ al segundo
 #include <vector>
 
 using namespace std;
-
-vector <char> cinta1;
+//Declaracion de los vectores que funcionaran como cintas.
+    vector <char> cinta1;
     vector <char> cinta2;
     vector <char> cinta3;
 
+//Funcion que transforma un numero binario a un decimal
 double
 bindec(vector <char> c)
 {
@@ -37,8 +38,8 @@ bindec(vector <char> c)
     int largo = c.size();
     for(contador = 0; contador<largo; contador++)
     {
-        if(c.at(contador) == '1')
-        {
+        if(c.at(contador) == '1')//En donde la posicion del binario sea 1, elevara 2 con potencia de la posicion-1
+        {//Ejemplo 10011, el primer 1 esta en la posicion 5-1, entonces es 2^4=16, luego es 2^1 = 2 y 2^0=1, la suma da 19
             resultado = pow(2,(largo-contador-1))+resultado;
         }             
     }
@@ -46,7 +47,7 @@ bindec(vector <char> c)
     return resultado;                     
 }
 
-
+//Funcion que transforma un decimal a binario mediante los residuos de la division
 vector <char>
 decbin (int dividendo, vector <char> cinta)
 {
@@ -58,41 +59,42 @@ decbin (int dividendo, vector <char> cinta)
      char resultado[18] = "1";
 
 
-     while(dividendo>1)
+     while(dividendo>1)	//Si el dividende es mayor a 1
      {
-         cociente = dividendo/divisor;
-         residuo = dividendo%divisor;
-         if(residuo == 1)
+         cociente = dividendo/divisor;	//Dividira el dividendo entre 2 para ver si continua dividiendo
+         residuo = dividendo%divisor;	//Obtiene el residuo
+         if(residuo == 1)	//Si el residuo es 1, ponemos un 1 al arreglo que contiene los numeros
          {
               resultado[contador]='1';
               contador++;    
          }
-         else if(residuo == 0)
+         else if(residuo == 0)	//Si el residuo es 0, ponemos un 0 al arreglo que contiene los numeros
          {
              resultado[contador]='0';
              contador++;  
          }
-         dividendo = cociente;             
+         dividendo = cociente;  //Ahora veremos si el cociente es mayor a 1, si lo es repetimos estos pasos.           
      }
-     if(dividendo == 1)
-     {
+     if(dividendo == 1)	//Cuando el dividendo sea > 2 habra dos casos, si es 1 o 0
+     {	//Si es 1 ponemos un 1 al arreglo de los resultados
          resultado[contador]='1';
          contador++;  
-     }
+     }	//Si es 0 ponemos un 0 al arreglo de los resultados
      else if(dividendo == 0)
      {
          resultado[contador]='0';
          contador++;  
      }
-     largo = strlen(resultado);
-     for(contador = 0; contador<largo;contador++)
+     largo = strlen(resultado);	//Obtenemos el largo del arreglo que contiene los residuos
+     for(contador = 0; contador<largo;contador++)	//Volteamos ese arreglo y se lo asignamos al vector que contiene el numero binario
      {
          cinta.push_back(resultado[largo-contador-1]);    
          //cout << cinta.at(contador);
      }
-     return cinta;
+     return cinta;	//Regresa el vector con el resultado del algoritmo de transformacion
 }
 
+//Funcion que se encarga de aumentar ceros a la cinta 2 para que cinta 1 y cinta 2 sean del mismo tamaño
 vector <char>
 aumentarCeros(vector <char> cinta, int diferencia){
 	vector<char> aux;
